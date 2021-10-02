@@ -1,27 +1,18 @@
 const item =document.querySelector(".item"),
       plaseholders=document.querySelectorAll(".placeholder");
-      console.log(plaseholders)
+     /*  console.log(plaseholders) */
       let i=0;
 
 item.addEventListener('dragstart', dragstart);
 item.addEventListener('dragend', dragend);
-for (placeholder of plaseholders){
-    placeholder.addEventListener('dragover', dragover),
-    placeholder.addEventListener('dragenter', dragenter),
-    placeholder.addEventListener('dragleave', dragleave),
-    placeholder.addEventListener('dragdrop', dragdrop)
-    i++
-    console.log(i)
-}
 
-/* plaseholders.forEach((placeholder)=>{
-    console
-    placeholder.addEventListener('dragover', dragover),
-    placeholder.addEventListener('dragenter', dragenter),
-    placeholder.addEventListener('dragleave', dragleave),
-    placeholder.addEventListener('dragdrop', dragdrop)
+plaseholders.forEach((placeholder)=>{
+    placeholder.addEventListener("dragover", dragover),
+    placeholder.addEventListener("dragenter", dragenter),
+    placeholder.addEventListener("dragleave", dragleave),
+    placeholder.addEventListener("drop", dragdrop)
     
-}) */
+})
 function dragstart(event){
     event.target.classList.add("hold");
     setTimeout(()=>{
@@ -29,9 +20,7 @@ function dragstart(event){
     }, 0)
 }
 function dragend(event){
-/*      event.target.classList.remove("hold");
-     event.target.classList.remove("hide"); */
-     event.target.className="item";
+    event.target.className="item";
 } 
 
 function dragenter(event){
@@ -45,5 +34,4 @@ function dragdrop(event){
 }
 function dragover(event){
     event.preventDefault();
-    console.log(event.target)
 }
